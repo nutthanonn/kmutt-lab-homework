@@ -3,8 +3,10 @@ import math
 
 name = []
 checkVincent = []
+count = 0
 
-for i in range(1, 1001):
+# for i in range(1, 1001):
+while len(checkVincent) != 350:
     if (i  % 100) == 0:
         print("Xingqui : " + str(name.count("Xingqui")))
         print("Raiden : " + str(name.count("Raiden")))
@@ -15,9 +17,9 @@ for i in range(1, 1001):
         print("-----------------------------")
         name.clear()
     
-    # if len(checkVincent) == 350:
-    #     print("Vincent more than 350")
-    #     break
+    if len(checkVincent) == 350:
+        print("Vincent more than 350")
+        break
     
     ra = math.floor(random.random() * 100)
 
@@ -37,5 +39,9 @@ for i in range(1, 1001):
     elif 65 < ra <= 100:
         name.append("Vincent")
         checkVincent.append("Vincent")
+    
+    count += 1
 
 print(len(checkVincent))
+print("--------")
+print(count)
