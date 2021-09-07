@@ -12,12 +12,12 @@ for i in range(1, 1001):
         print("Riktor : " + str(name.count("Riktor")))
         print("Aleister : " + str(name.count("Aleister")))
         print("Vincent : " + str(name.count("Vincent")))
-        print("----------")
+        print("-----------------------------")
         name.clear()
     
-    if len(checkVincent) == 350:
-            print("Vincent more than 350")
-            break
+    # if len(checkVincent) == 350:
+    #     print("Vincent more than 350")
+    #     break
     
     ra = math.floor(random.random() * 100)
 
@@ -37,6 +37,5 @@ for i in range(1, 1001):
     elif 65 < ra <= 100:
         name.append("Vincent")
         checkVincent.append("Vincent")
-
 
 print(len(checkVincent))
