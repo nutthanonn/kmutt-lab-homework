@@ -5,8 +5,8 @@ name = []
 checkVincent = []
 count = 0
 
-# for i in range(1, 1001):
-while len(checkVincent) != 350:
+for i in range(1, 1001):
+# while len(checkVincent) != 350:
     if (i  % 100) == 0:
         print("Xingqui : " + str(name.count("Xingqui")))
         print("Raiden : " + str(name.count("Raiden")))
