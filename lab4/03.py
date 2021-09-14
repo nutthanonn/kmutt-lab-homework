@@ -21,4 +21,3 @@ for i in range(p):
         print("|" +data[i+p]+"|", end="    ")
         p += 4
     print()
-    
