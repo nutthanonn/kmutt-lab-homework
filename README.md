@@ -1,5 +1,5 @@
 # LabPythonKMUTT
 
-This is LabPython by KMUTT
+`Lab KMUTT-Python`
 
 Create by &copy; Nutthanon
