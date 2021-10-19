@@ -3,6 +3,4 @@ def triangle(nline, diff):
     for i in range(nline):
         print("*"*a)
         a += diff
-nline = int(input())
-diff = int(input())
-triangle(nline, diff)
+triangle(4, 3)

@@ -4,9 +4,11 @@ def trigonometry(x):
     number = []
     a = 0
     for i in range(17):
-        print(str(a) + "     " + str(math.sin(math.pi/180 * a)))
-        print(" "*(len(str(a)) + 5) + str(math.cos(math.pi/180 * a)))
+        s = "%.10f" %math.sin(math.radians(a))
+        c = "%.10f" %math.cos(math.radians(a))
+        print(str(a) + "     " + "sin ==> "+ str(s))
+        print(" "*(len(str(a)) + 5) + "cos ==> " + str(c))
         a += 22.5
-        print("--------------------------------")
+        print("<---------------------------------------------->")
 
 trigonometry(0)
