@@ -1,14 +1,15 @@
+#python3 02.py 
+
 import math
 
-def trigonometry(x):
-    number = []
-    a = 0
-    for i in range(17):
-        s = "%.10f" %math.sin(math.radians(a))
-        c = "%.10f" %math.cos(math.radians(a))
-        print(str(a) + "     " + "sin ==> "+ str(s))
-        print(" "*(len(str(a)) + 5) + "cos ==> " + str(c))
-        a += 22.5
-        print("<---------------------------------------------->")
 
-trigonometry(0)
+def trigonometry(x):
+    s = "%.15f" % math.sin(math.radians(x))
+    c = "%.15f" % math.cos(math.radians(x))
+    return s, c
+
+a = 0
+for i in range(int(360/22.5)+1):
+    print(a, trigonometry(a))
+    a += 22.5
+    print("<------------------------------------------------------------------------->")

@@ -1,3 +1,5 @@
+#python3 03.py 
+
 def rectangle(width=5, height=5):
     for i in range(height):
         print("*"*width)
