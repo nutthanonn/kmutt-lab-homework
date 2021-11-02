@@ -1,8 +1,9 @@
+x = 'ab138g579b'
+# x = 'h54325b1'
 l = []
-def check(x):
-    for i in x:
-        if  48 <= ord(i) <= 57 and i in l:
-            return i
-        l.append(i)
-print(check('ab138g579b'))
-print(check('h54325b1'))
+for i in x:
+    if 48 <= ord(i) <= 57 and i in l:
+        print(i)
+        exit()
+    l.append(i)
+print("None")
