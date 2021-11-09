@@ -1,15 +1,15 @@
 from random import randint
 
-number = []
-while len(number) != 10:
+queue = []
+while len(queue) != 10:
     n = randint(0, 9)
-    if n not in number: number.append(n)
-print(*number)
-
+    if n not in queue: queue.append(n)
+print(*queue)
+ 
 while True:
-    queue = int(input())
-    if queue < 0: break
-    number.pop(number.index(queue))
-    number.insert(0, queue)
-    print(*number)
+    number = int(input())
+    if number < 0: break
+    queue.remove(number)
+    queue.insert(0, number)
+    print(*queue)
     
