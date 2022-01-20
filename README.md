@@ -1,5 +1,3 @@
-# LabPythonKMUTT
+# KMUTT lab coding
 
-`Lab KMUTT-Python`
-
-Create by &copy; Nutthanon
+Algorithm by Nutthanon
