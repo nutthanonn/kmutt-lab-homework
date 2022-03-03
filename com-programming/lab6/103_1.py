@@ -17,7 +17,7 @@ name_position = []
 name = set()
 for i in range(n):
     name_position.append(input().split())
-word_name = [x for x in input().split()]
+word_name = [x for x in input().strip()]
 for i in name_position:
     if i[1] in word_name:
         name.add(i[0])
