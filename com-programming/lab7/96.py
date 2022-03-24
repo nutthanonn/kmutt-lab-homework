@@ -1,3 +1,10 @@
+"""
+
+AaaccBbbbf
+
+
+"""
+
 
 x = input().lower().strip()
 d = []

@@ -1,19 +1,21 @@
-def mypi(n):
-    y = 2
-    summarry = 3    
-    for i in range(1,n+1):
-        if i%2 == 0:
-            x = -(4 / (y*(y+1)*(y+2)))
-            y += 2
-            summarry += x
-            i += 1
+import numpy as np
+k = int(input())
+if k % 2 == 0:
+    k = int(k//2)
+    m = np.array([[1, 0]*k])
+    for i in range(1, k*2):
+        if i % 2 == 0:
+            l = [i+1, 0] * k
         else:
-            x = 4 / (y*(y+1)*(y+2))
-            y += 2
-            summarry += x
-            i += 1
-    return [i,summarry]
-
-for i in range(1, 31):
-    pi = mypi(i)
-    print(pi[0], pi[1])
+            l = [0, i+1] * k
+        m = np.vstack([m, l])
+else:
+    k = int(k//2)
+    m = np.array([[1, 0]*k+[1]])
+    for i in range(1, k*2+1):
+        if i % 2 == 0:
+            l = [i+1, 0] * k + [i+1]
+        else:
+            l = [0, i+1] * k + [0]
+        m = np.vstack([m, l])
+print(m)
