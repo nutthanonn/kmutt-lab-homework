@@ -21,17 +21,16 @@ def createTxt(path):
             stream.write('\n'.join(word))
 
 
-def makePath(path, curr):
-    if curr == 5:
+def makePath(path, curr, m):
+    if curr == len(m):
         os.makedirs(os.path.join(BASE_PATH, path))
         createTxt(path)
         return
 
-    m = ["bb", "cc", "dd", "ee", "ff"]
-    for i in range(1, 6):
+    for i in range(1, len(m)+1):
         path += f"{m[curr]}{i}/"
         makePath(path, curr+1)
         path = path[:-4]
 
-
-makePath("", 0)
+m = ["bb", "cc", "dd", "ee", "ff"]
+makePath("", 0, m)
