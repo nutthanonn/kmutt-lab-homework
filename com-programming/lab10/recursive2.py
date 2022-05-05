@@ -29,7 +29,7 @@ def makePath(path, curr):
 
     m = ["bb", "cc", "dd", "ee", "ff"]
     for i in range(1, 6):
-        path += m[curr] + str(i) + "/"
+        path += f"{m[curr]}{i}/"
         makePath(path, curr+1)
         path = path[:-4]
 
