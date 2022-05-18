@@ -32,5 +32,6 @@ def makePath(path, curr, m):
         makePath(path, curr+1)
         path = path[:-4]
 
+
 m = ["bb", "cc", "dd", "ee", "ff"]
 makePath("", 0, m)
