@@ -42,7 +42,8 @@ class Regresstion:
         return self.sigma_xy() / math.sqrt(self.sigma_x_2() * self.sigma_y_2())
 
 
-x = [10, 9.3, 13.0, 10.5, 11.8, 11.5, 12, 10.8, 15.5]
-y = [287.8, 286.8, 358, 278.3, 344.8, 292.5, 317.5, 313.5, 440.3]
-obj = Regresstion(x=x, y=y, n=9)
-print(obj.r())
+x = [0.8, 1.0,      1.6,      2.0,      2.2,      2.6,
+     3.0, 3.0,     4.0,      4.0,       4.0,       4.6]
+y = [22, 28, 22, 26, 34, 18, 30, 38, 30, 40, 50, 46]
+obj = Regresstion(x=x, y=y, n=12)
+print(obj.Y())

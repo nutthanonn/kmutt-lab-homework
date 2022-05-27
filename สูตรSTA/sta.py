@@ -55,6 +55,7 @@ class STA:
         self.data = data
 
     def Mean(self):
+        print(statistics.mean(self.data))
         return statistics.mean(self.data)
 
     def SD(self):
@@ -64,6 +65,12 @@ class STA:
 
     def CV(self):
         return statistics.stdev(self.data)**2
+
+    @staticmethod
+    def caiSqart(n, s, sigma):
+        final = (n-1) * s**2 / sigma**2
+        print(final)
+        return final
 
     @staticmethod
     def ErrorS4(z, p_hat, n):
@@ -168,11 +175,34 @@ class STA:
         print(f"{min_val:.6f} < sigma1^2 / sigma2^2 < {max_val:.6f}")
 
 
-temp = STA([1.9, 2.4, 3, 3.5, 4.2])
+temp = STA([148, 176, 153, 116])
+temp.SD()
+temp.Mean()
+# 154, 176, 151, 121
+
+# 148, 176, 153, 116
+
+# 218, 236, 178, 244, 148, 171, 198, 168, 160, 174
+
+# 178, 184, 146, 176, 185, 158, 175, 172, 163, 181,
+#            162, 152, 164, 180, 157, 164, 182, 169, 178, 154, 148
+
+# temp.SD()
+# temp.Mean()
+# temp.s1(z, sigma, n, mean)
+# temp.s2(t, s, n, mean)
+# temp.s3(z, s, n, mean)
 # temp.s4(z=1.96, p_hat=34/40, n=40)
 # temp.s5(n=5, cv=temp.CV(), cai_sqrt_max=0.484, cai_sqrt_min=11.143)
-# temp.s11(z=1.96, p1_hat=0.05, p2_hat=0.04, n1=1500, n2=2000)
-# temp.s13(cv1=64, cv2=49, f_v1v2=3.29, f_v2v1=2.89)
+# temp.s6(sigma1=32.975, sigma2=12.316, mean1=189.5,
+#         mean2=168, z=1.96, n1=10, n2=21)
+# temp.s7(mean1, mean2, t, n1, n2, sp)
+# temp.s8(sigma1=32.975**2, sigma2=12.316**2, mean1=189.5,
+#         mean2=168, t=2.052, n1=10, n2=21)
+# temp.s9(cv1, cv2, mean1, mean2, z, n1, n2)
+# temp.s10(mean_d, t, s, n)
+# temp.s12(z=1.96, p1_hat=0.05, p2_hat=0.04, n1=1500, n2=2000)
+# temp.s13(cv1=32.975**2, cv2=12.316**2, f_v1v2=3.46, f_v2v1=4.81)
 
 
-temp.s5(n=10, cv=0.15**2, cai_sqrt_max=2.088, cai_sqrt_min=21.666)
+print(temp.s7_df(cv1=24.716**2, cv2=22.605**2, n1=4, n2=4))
