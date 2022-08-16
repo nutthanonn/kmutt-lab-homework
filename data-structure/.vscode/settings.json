@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "typeinfo": "cpp",
+    "ostream": "cpp",
+    "__tuple": "cpp",
+    "iostream": "cpp",
+    "cstdlib": "cpp",
+    "ctime": "cpp"
+  }
+}
