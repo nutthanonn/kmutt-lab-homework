@@ -57,34 +57,6 @@ double AvrScore(struct Student student[10])
 }
 
 
-
-
-void ModeScore(struct Student student[10])
-{
-    int number = student[0].score;
-    int mode = number;
-    int count = 1;
-    int countMode = 1;
-
-    for (int i=1; i<10; i++)
-    {
-        if(student[i].score == number)
-            ++count;
-        else
-        {
-            if (count > countMode) 
-            {
-                countMode = count;
-                mode = number;
-            }
-            count = 1;
-            number = student[i].score;
-        }
-    }
-    cout << "mode : " << mode << endl;
-}
-
-
 void selection_sort(int scores[10])
 {
     for(int i=0;i<10;i++)
@@ -92,6 +64,47 @@ void selection_sort(int scores[10])
             if(scores[i] < scores[j])
                 swap(scores[j], scores[i]);
 }
+
+
+
+void ModeScore(struct Student student[10])
+{
+
+    int scores[10];
+    for(int i=0;i<10;i++)
+        scores[i] = student[i].score;
+
+    selection_sort(scores);
+
+
+    int number = scores[0];
+    int mode = number;
+    int count = 1;
+    int countMode = 1;
+
+    for (int i=1; i<10; i++)
+    {
+        if(scores[i] == number)
+            count++;
+        else
+        {
+            if (count > countMode)
+            {
+                countMode = count;
+                mode = number;
+            }
+            count = 1;
+            number = scores[i];
+        }
+    }
+    if (count > countMode)
+        mode = number;
+
+    cout << "mode : " << mode << endl;
+}
+
+
+
 
 
 double MedianScore(struct Student student[10])
@@ -191,7 +204,7 @@ int main()
     for(int j=0;j<10;j++)
     {
         int score = student[j].score;
-        cout << student[j].name;
+        cout << student[j].name << " -> ";
         get_grade(av, sd, score);
         cout << endl;
     }
