@@ -4,58 +4,50 @@
 #include <ctime>
 using namespace std;
 
-struct Student
+typedef struct Student
 {
     char name[50];
     int score;
-};
+} s_node;
 
-
-
-void MaxStudent(struct Student student[10])
+string MaxStudent(s_node student[10])
 {   
-    struct Student max_student;
-    max_student.score=0;
+    string max_student_name;
+    int max_score=INT_MIN;
     for(int i=0;i<10;i++)
     {
-        if(student[i].score > max_student.score)
+        if(student[i].score > max_score)
         {
-            max_student.score = student[i].score;
-            strcpy(max_student.name, student[i].name);
+            max_score = student[i].score;
+            max_student_name = student[i].name;
         }
     }
-    cout << "Max Student: " << max_student.name << endl;
-    cout << "score: " << max_student.score << endl;
+    return max_student_name;
 }
 
-
-void MinStudent(struct Student student[10])
+string MinStudent(s_node student[10])
 {   
-    struct Student min_student;
-    min_student.score=INT_MAX;
+    string min_student_name;
+    int min_score=INT_MAX;
     for(int i=0;i<10;i++)
     {
-        if(student[i].score < min_student.score)
+        if(student[i].score < min_score)
         {
-            min_student.score = student[i].score;
-            strcpy(min_student.name, student[i].name);
+            min_score = student[i].score;
+            min_student_name = student[i].name;
         }
     }
-    cout << "Min Student: " << min_student.name << endl;
-    cout << "score: " << min_student.score << endl;
+    return min_student_name;
 }
 
-
-double AvrScore(struct Student student[10])
+float AvrScore(s_node student[10])
 {
-    double av;
+    float av;
     for(int i=0;i<10;i++)
         av += student[i].score;
     av /= 10;
-    cout << "AvrScore: " << av << endl; 
     return av;
 }
-
 
 void selection_sort(int scores[10])
 {
@@ -66,25 +58,16 @@ void selection_sort(int scores[10])
 }
 
 
-
-void ModeScore(struct Student student[10])
+int ModeScore(s_node student[10])
 {
-
-    int scores[10];
-    for(int i=0;i<10;i++)
-        scores[i] = student[i].score;
-
-    selection_sort(scores);
-
-
-    int number = scores[0];
+    int number = student[0].score;
     int mode = number;
     int count = 1;
     int countMode = 1;
 
     for (int i=1; i<10; i++)
     {
-        if(scores[i] == number)
+        if(student[i].score == number)
             count++;
         else
         {
@@ -94,72 +77,45 @@ void ModeScore(struct Student student[10])
                 mode = number;
             }
             count = 1;
-            number = scores[i];
+            number = student[i].score;
         }
     }
+
     if (count > countMode)
         mode = number;
 
-    cout << "mode : " << mode << endl;
+    return mode;
 }
 
-
-
-
-
-double MedianScore(struct Student student[10])
+bool compare(s_node a, s_node b)
 {
-    int scores[10];
-    for(int i=0;i<10;i++)
-        scores[i] = student[i].score;
+    return a.score < b.score;
+}
 
-    selection_sort(scores);
-
-    double med = (scores[4]+scores[5]) / 2.0;
-    cout << "Med: " << med << endl;
-
+double MedianScore(s_node student[10])
+{
+    double med = (student[4].score + student[5].score) / 2.0;
     return med;
 }
 
 
-
-double SDScore(struct Student student[10])
+double SDScore(s_node student[10])
 {
-    int i;
-    float sum = 0.0, mean, standardDeviation = 0.0;
-
-    int data[10];
-    for(int i=0;i<10;i++)
-        data[i] = student[i].score;
-
-    for(i = 0; i < 10; ++i) 
-        sum += data[i];
-
-    mean = sum / 10;
-
-    for(i = 0; i < 10; ++i) 
-        standardDeviation += pow(data[i] - mean, 2);
+    float standardDeviation = 0.0;
+    for(int i=0; i<10; i++)
+        standardDeviation += pow(student[i].score - AvrScore(student), 2);
 
     double sd = sqrt(standardDeviation / 10);
-    cout << "SDScore: " << sd << endl;
-
     return sd;
 }
 
-
-void get_grade(double avr, double SD, int score)
+char get_grade(double avr, double SD, int score)
 {   
-    if(score >= avr + 2*SD)
-        cout << "Grade: A";
-    else if(score < avr+2*SD && score >= avr+SD)
-        cout << "Grade: B";
-    else if(score < avr+SD && score >= avr)
-        cout << "Grade: C";
-    else if(score < avr+SD && score >= avr-SD)
-        cout << "Grade: D";
-    else
-        cout << "Grade: F";
-
+    if(score >= avr + 2*SD) return 'A';
+    else if(score > avr+SD) return 'B';
+    else if(score > avr) return 'C';
+    else if(score > avr - SD) return 'D';
+    else return 'F';
 }
 
 
@@ -174,40 +130,32 @@ int main()
     for(int i=0;i<10;i++)
         scores[i] = rand()%50 + 50;
     
-    
-    struct Student student[10];
+    s_node student[10];
     for(int i=0;i<10;i++)
     {
         strcpy(student[i].name, names[i]);
         student[i].score = scores[i];
     }
 
-    MaxStudent(student);
-    cout<<endl;
+    cout << "\n  Student data\n" << endl;
+    for(int i=0;i<10;i++)
+        cout << student[i].name << "  -  Score: " << student[i].score << endl;
 
-    MinStudent(student);
-    cout<<endl;
+    sort(student, student+10, compare);
 
-    double av = AvrScore(student);
-    cout<<endl;
+    cout << "\n\tstat\n" << endl;
+    float av = AvrScore(student);
+    float SD = SDScore(student);
+    cout << "Max Student: " << MaxStudent(student) << endl;
+    cout << "Min Student: " << MinStudent(student) << endl;
+    cout << "Average score: " << av << endl;
+    cout << "Mode: " << ModeScore(student) << endl;
+    cout << "Median: " << MedianScore(student) << endl;
+    cout << "Standard Deviation: " << SD << endl;
 
-    ModeScore(student);
-    cout<<endl;
-
-    MedianScore(student);
-    cout<<endl;
-
-    double sd = SDScore(student);
-    cout<<endl;
-
-
-    for(int j=0;j<10;j++)
-    {
-        int score = student[j].score;
-        cout << student[j].name << " -> ";
-        get_grade(av, sd, score);
-        cout << endl;
-    }
+    cout << "\n\tGrade\n" << endl;
+    for(int i=0;i<10;i++)
+        cout << student[i].name << " - Grade: " << get_grade(av, SD, student[i].score) << endl;
 
     return 0;
 }
