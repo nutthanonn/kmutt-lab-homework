@@ -128,10 +128,10 @@ int main()
 
     //{80, 92, 97, 99, 96, 53, 84, 89, 75, 61}
 
-    int scores[10] ={80, 92, 97, 99, 96, 53, 84, 89, 75, 61};
-    // srand((unsigned)time(NULL));
-    // for(int i=0;i<10;i++)
-    //     scores[i] = rand()%40 + 60;
+    int scores[10];
+    srand((unsigned)time(NULL));
+    for(int i=0;i<10;i++)
+        scores[i] = rand()%40 + 60;
     
     s_node student[10];
     for(int i=0;i<10;i++)
