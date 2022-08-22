@@ -45,7 +45,7 @@ float AvrScore(s_node student[10])
     float av;
     for(int i=0;i<10;i++)
         av += student[i].score;
-    av /= 10;
+    av /= 10.0;
     return av;
 }
 
@@ -111,7 +111,7 @@ double SDScore(s_node student[10])
 
 char get_grade(double avr, double SD, int score)
 {   
-    if(score >= avr + 2*SD) return 'A';
+    if(score > avr + 2*SD) return 'A';
     else if(score > avr+SD) return 'B';
     else if(score > avr) return 'C';
     else if(score > avr - SD) return 'D';
@@ -125,10 +125,13 @@ int main()
         "Barbara", "Ginger", "Larry", "Mary", "Diane", "Robert", "Michael", "Arturo", "Rodolfo", "Deborah",
     };
 
-    int scores[10];
-    srand((unsigned)time(NULL));
-    for(int i=0;i<10;i++)
-        scores[i] = rand()%50 + 50;
+
+    //{80, 92, 97, 99, 96, 53, 84, 89, 75, 61}
+
+    int scores[10] ={80, 92, 97, 99, 96, 53, 84, 89, 75, 61};
+    // srand((unsigned)time(NULL));
+    // for(int i=0;i<10;i++)
+    //     scores[i] = rand()%40 + 60;
     
     s_node student[10];
     for(int i=0;i<10;i++)
