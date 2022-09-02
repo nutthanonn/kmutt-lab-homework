@@ -2,4 +2,4 @@
 
 - newton method
 - binary method or bisection method
-- newton method
+- secant method
