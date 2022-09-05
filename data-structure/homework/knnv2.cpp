@@ -65,7 +65,7 @@ void Insert(Node *curr, double distance, int index, string nick, string type, st
 
 int main()
 {
-    int n_nearest = 5;
+    int n_nearest = 3;
 
     fstream fin;
     fin.open("CSS223-MBTI.tsv");
@@ -76,12 +76,6 @@ int main()
     Node *head = new Node();
     head->distance = 0;
     Node *curr = head;
-
-    /*
-        Time: O(n-nearest)
-
-        do: create temp node for insert value
-    */
     
     for(int i=0;i<n_nearest+1;i++)
     {
@@ -90,6 +84,7 @@ int main()
             Node *temp = new Node();
             temp->distance = MAXFLOAT;
             curr->next = temp;
+            delete temp;
         }
         curr = curr->next;
     }
@@ -98,12 +93,6 @@ int main()
     for(int i=0;i<9;i++) 
         my_data.scores[i] = my_scores[i];
 
-    /*
-        Time: O(7N + (n-nearest * N))
-
-        do: fetch data from tsv file
-        while loop function using time = O(N) because it fetch all data from tsv but how to make time to binary search ??
-    */
 
     while (fin.good())
     {
@@ -119,14 +108,6 @@ int main()
         // O(7)
         double distance = find_distance(other_data, my_data);
 
-        
-        /*
-            time: O(n-nearest)
-
-            do: if distance < some node it will insert instead of this node
-                use for loop to loop linkedlist node take bigO(n-nearest) time
-        */
-
         Node *curr = head;
         for(int i=0;i<n_nearest;i++)
         {   
@@ -137,6 +118,7 @@ int main()
             }
             curr = curr->next;
         }
+
 
         // cout << other_data.student_no << " - " << other_data.fname << endl;
         // cout << other_data.nick << " - " << distance << endl;
@@ -149,6 +131,8 @@ int main()
         cout << temp->student_no << " - " << temp->distance << " - " << temp->type << endl;
         temp = temp->next;
     }
+    delete temp;
+
 
     
     string other_type[n_nearest];
@@ -170,12 +154,6 @@ int main()
     string my_type = "";
 
     
-    /*
-        time: O(n-nearest * 4)
-
-        this for loop to vote class that have most of n-nearest neighbor
-        in MBTI char have 2 probability and string size = 4-char that mean 2**4 = 16 type of MBTI
-    */
 
     for(int i=0;i<size_type;i++)
     {
