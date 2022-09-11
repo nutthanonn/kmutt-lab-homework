@@ -1,17 +1,3 @@
-/*
-
-    Time: O(n-neaerest + 9 + 7N + (n-nearest * N) + 7 + n-nearest + n-nearest + n-nearest + n-nearest*4)
-
-        : O((7+n-nearest)*N + 8*n-nearest + 16)
-
-if n-nearest = 3
-
-    Time = O((7+3)*N + 8*3 + 16)
-         = O(10N + 40)
-         = O(N)
-
-*/
-
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -28,7 +14,6 @@ typedef struct data
     string enneagram;
     string nick;
 } d_node;
-
 
 class Node 
 {
@@ -89,7 +74,6 @@ int main()
         curr = curr->next;
     }
 
-    // O(9)
     for(int i=0;i<9;i++) 
         my_data.scores[i] = my_scores[i];
 
@@ -105,7 +89,6 @@ int main()
         if(other_data.student_no == "64090500431")
             continue;
 
-        // O(7)
         double distance = find_distance(other_data, my_data);
 
         Node *curr = head;

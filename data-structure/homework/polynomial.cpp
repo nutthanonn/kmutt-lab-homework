@@ -1,3 +1,13 @@
+/*
+
+64090500431
+method add time: O(n)
+method multiply time: O(n^2)
+
+*/
+
+
+
 #include <iostream>
 using namespace std;
 
@@ -10,6 +20,18 @@ class Node
         Node *next;
     Node(int c, int e): coef(c),expo(e) {}
 };
+
+
+
+void remove(Node *head)
+{
+    while (head != NULL)
+    {
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
 
 
 void append(Node *p, int coef, int expo)
@@ -88,7 +110,6 @@ void mul(Node *p1, Node *p2)
             ptr2 = ptr2->next;
         }
         ptr2 = p2;
-  
         ptr1 = ptr1->next;
     }
 
@@ -133,6 +154,9 @@ int main()
     
     cout << endl;
     mul(p1, p2);
+    remove(p1);
+    remove(p2);
+
 
     return 0;
 }
