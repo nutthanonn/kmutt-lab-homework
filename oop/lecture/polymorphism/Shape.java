@@ -1,4 +1,4 @@
-public class Shape {
+abstract public class Shape {
     public String color;
     
     public Shape(String color){
@@ -11,8 +11,5 @@ public class Shape {
     }
 
 
-    public double getArea() {
-        System.out.println("Shape unknow Cannot");
-        return 0;
-    }
+    abstract public double getArea();
 }
