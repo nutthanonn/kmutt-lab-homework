@@ -4,7 +4,7 @@
 
 - [Newton method](https://github.com/nutthanonn/kmutt-lab-homework/blob/main/numerical/method/newton-method.ipynb)
 - [Binary method or Bisection method](https://github.com/nutthanonn/kmutt-lab-homework/blob/main/numerical/method/binary-method.ipynb)
-- secant method
+- [Secant method](https://github.com/nutthanonn/kmutt-lab-homework/blob/main/numerical/secant-method.ipynb)
 
 ### หาพหุนามตำแหน่งที่ n
 
