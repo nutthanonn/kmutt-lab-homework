@@ -21,7 +21,7 @@ class Seal extends Animal {
     }
 }
 
-class Bird extends Animal {
+class Bird extends Animal {4
     public void bark(){
         System.out.println("Tweet !");
     }
