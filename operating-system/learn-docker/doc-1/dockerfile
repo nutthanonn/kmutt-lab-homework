@@ -1,0 +1,4 @@
+FROM alpine:latest
+LABEL Author="nutthanon"
+LABEL Version="1.0"
+RUN apk update && apk add curl wget sudo nginx

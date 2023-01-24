@@ -1,0 +1,5 @@
+FROM python:3.8.15-alpine3.15
+
+ADD main.py /
+
+CMD [ "python", "./main.py" ]
