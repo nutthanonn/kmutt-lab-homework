@@ -1,0 +1,10 @@
+version: "3"
+services:
+  app:
+    container_name: react-app
+    image: docker-react
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    stdin_open: true
