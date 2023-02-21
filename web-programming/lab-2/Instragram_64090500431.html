@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Instagram Post</title>
+    <style>
+      :root {
+        --primary: #fdfaf6;
+        --secoundry: #faf1e6;
+        --green: #064420;
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+      }
+      html {
+        background: var(--primary);
+      }
+      header {
+        background: var(--secoundry);
+        padding: 1rem;
+      }
+
+      .std__id {
+        padding: 10rem 3rem;
+      }
+      .block {
+        display: block;
+        padding: 5px 0;
+      }
+
+      .a__nostyled {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .a__nostyled:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--green);
+      }
+
+      .grid {
+        padding: 4rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .flex {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      @media screen and (max-width: 768px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      .img__cut__corner {
+        display: inline;
+        width: 100%;
+        height: auto;
+        border-radius: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>
+          <a href="/" class="a__nostyled">
+            <span>Nutthanon</span>
+          </a>
+        </h1>
+      </nav>
+    </header>
+    <main>
+      <section class="std__id">
+        <article>
+          <h1>
+            <span class="block">Nutthanon Thongcharoen</span>
+            <span class="block">64090500431</span>
+          </h1>
+        </article>
+      </section>
+      <section class="grid">
+        <div class="flex">
+          <img
+            src="https://images.unsplash.com/photo-1675746960550-dd7923a8f021?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+            alt="unsplash-image"
+            class="img__cut__corner"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1675774553124-4a1509fd4f65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
+            alt="unsplash-image"
+            class="img__cut__corner"
+          />
+        </div>
+        <div class="flex">
+          <img
+            src="https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+            alt="unsplash-image"
+            class="img__cut__corner"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1675755848374-27b8712b6769?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+            alt="unsplash-image"
+            class="img__cut__corner"
+          />
+        </div>
+        <div class="flex">
+          <img
+            src="https://images.unsplash.com/photo-1675703600500-10816fbf9d00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0NHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60"
+            alt="unsplash-image"
+            class="img__cut__corner"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1675771433568-cbe9c02e1cf6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0MHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60"
+            alt="unsplash-image"
+            class="img__cut__corner"
+          />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+/*Give the <body> element a background of Black*/
+body {
+  background: black;
+}
+/*Make the <h1> elements blue*/
+h1 {
+  color: blue;
+}
+
+/*Make all <li> elements in the shade of hexadecimal blue*/
+li {
+  color: #0000ff;
+}
+
+/*Paragraph background to orange*/
+p {
+  background: orange;
+}
+
+/*Make all <h3> have 5px red solid border*/
+h3 {
+  border: 5px solid red;
+}
+
+/*Give everything with <abbr> bold and underlined*/
+abbr {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/*Give elements with class "explanation" red*/
+.explanation {
+  color: red;
+}
+
+/*Give <p> in id "zen-benefits" pink background*/
+#zen-benefits p {
+  background: pink;
+}
+
+/*Make <li> adjacent to <h2> red background*/
+h2 + li {
+  background: red;
+}
+
+/*Give <em> inside <p> red and bold*/
+p em {
+  color: red;
+  font-weight: bold;
+}

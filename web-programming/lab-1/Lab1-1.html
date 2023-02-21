@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table Score</title>
+    <style>
+      body {
+        padding: 20px;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 17px;
+      }
+
+      tr > th:first-child,
+      tr > td:first-child {
+        width: 500px;
+      }
+      tr:nth-child(2),
+      tr:nth-child(3),
+      tr:nth-child(4),
+      tr:nth-child(5) {
+        box-shadow: inset 3px 0 0 0 #4285f4;
+      }
+      tr:nth-child(6) {
+        box-shadow: inset 3px 0 0 0 #fa7b17;
+      }
+      tr > th:nth-child(n + 2),
+      tr > td:nth-child(n + 2) {
+        text-align: center;
+      }
+
+      tr {
+        border-bottom: 1px solid #dddddd;
+      }
+
+      .circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: white;
+      }
+
+      .circle__green {
+        background-color: green;
+      }
+
+      .circle__red {
+        background-color: red;
+      }
+
+      .circle__gray {
+        background-color: gray;
+      }
+
+      .inline-flex {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .center {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>สโมสร</th>
+        <th>แข่ง</th>
+        <th>ชนะ</th>
+        <th>เสมอ</th>
+        <th>แพ้</th>
+        <th>ได้</th>
+        <th>เสีย</th>
+        <th>ต่าง</th>
+        <th>แต้ม</th>
+        <th>5 นัดล่าสุด</th>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>1 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/4us2nCgl6kgZc0t3hpW75Q_48x48.png"
+              alt="arsenal"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;อาเซลนอล</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>2 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/z44l-a0W1v5FmgPnemV6Xw_48x48.png"
+              alt="mancity"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;แมนซิตี้</p>
+        </td>
+        <td>20</td>
+        <td>14</td>
+        <td>3</td>
+        <td>3</td>
+        <td>53</td>
+        <td>20</td>
+        <td>33</td>
+        <td>45</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__gray">-</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>3 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/96CcNNQ0AYDAbssP0V9LuQ_48x48.png"
+              alt="newcastle"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;นิวคาสเซิล</p>
+        </td>
+        <td>20</td>
+        <td>10</td>
+        <td>9</td>
+        <td>1</td>
+        <td>33</td>
+        <td>11</td>
+        <td>22</td>
+        <td>39</td>
+        <td class="inline-flex">
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>4 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_48x48.png"
+              alt="manutd"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;แมนยูไนเต็ด</p>
+        </td>
+        <td>20</td>
+        <td>12</td>
+        <td>3</td>
+        <td>5</td>
+        <td>32</td>
+        <td>25</td>
+        <td>7</td>
+        <td>39</td>
+        <td class="inline-flex">
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>5 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/k3Q_mKE98Dnohrcea0JFgQ_48x48.png"
+              alt="spur"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;สเปอร์ส</p>
+        </td>
+        <td>21</td>
+        <td>11</td>
+        <td>3</td>
+        <td>7</td>
+        <td>40</td>
+        <td>31</td>
+        <td>9</td>
+        <td>36</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>6 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/EKIe0e-ZIphOcfQAwsuEEQ_48x48.png"
+              alt="brighton"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;ไบร์ทตัน</p>
+        </td>
+        <td>19</td>
+        <td>9</td>
+        <td>4</td>
+        <td>6</td>
+        <td>37</td>
+        <td>27</td>
+        <td>10</td>
+        <td>31</td>
+        <td class="inline-flex">
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>7 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/Gh7_5p3n364p4vxeM8FhNg_48x48.png"
+              alt="fulham"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;ฟูลัม</p>
+        </td>
+        <td>21</td>
+        <td>9</td>
+        <td>4</td>
+        <td>8</td>
+        <td>32</td>
+        <td>30</td>
+        <td>2</td>
+        <td>31</td>
+        <td class="inline-flex">
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>8 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/QOUce0WQBYqnkSmN6_TxGA_48x48.png"
+              alt="brentford"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;เบรนท์ฟอร์ด</p>
+        </td>
+        <td>20</td>
+        <td>7</td>
+        <td>9</td>
+        <td>4</td>
+        <td>32</td>
+        <td>28</td>
+        <td>4</td>
+        <td>30</td>
+        <td class="inline-flex">
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__gray">-</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>9 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/0iShHhASp5q1SL4JhtwJiw_48x48.png"
+              alt="liverpool"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;ลิเวอร์พูล</p>
+        </td>
+        <td>19</td>
+        <td>8</td>
+        <td>5</td>
+        <td>6</td>
+        <td>34</td>
+        <td>25</td>
+        <td>9</td>
+        <td>29</td>
+        <td class="inline-flex">
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>10 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/fhBITrIlbQxhVB6IjxUO6Q_48x48.png"
+              alt="chealsea"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;เชลซี</p>
+        </td>
+        <td>20</td>
+        <td>8</td>
+        <td>5</td>
+        <td>7</td>
+        <td>22</td>
+        <td>21</td>
+        <td>1</td>
+        <td>29</td>
+        <td class="inline-flex">
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>11 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/uyNNelfnFvCEnsLrUL-j2Q_48x48.png"
+              alt="aston villa"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;แอสตัลวิลล่า</p>
+        </td>
+        <td>19</td>
+        <td>15</td>
+        <td>3</td>
+        <td>3</td>
+        <td>25</td>
+        <td>34</td>
+        <td>23</td>
+        <td>45</td>
+        <td class="inline-flex">
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>12 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/8piQOzndGmApKYTcvyN9vA_48x48.png"
+              alt="chirstal palace"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;คริสตัลพาเลซ</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>13 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/Zr6FbE-8pDH7UBpWCO8U9A_48x48.png"
+              alt="forest"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;ฟอเรสต์</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>14 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/Zr6FbE-8pDH7UBpWCO8U9A_48x48.png"
+              alt="lester"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;เลสเตอร์</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>15 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/5dqfOKpjjW6EwTAx_FysKQ_48x48.png"
+              alt="least"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;ลีดส์</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>16 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_48x48.png"
+              alt="west ham"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;เวสต์แฮม</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>17 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/-WjHLbBIQO9xE2e2MW3OPQ_48x48.png"
+              alt="wolfhamton"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;วูลฟ์แฮมป์ตัน</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>18 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/IcOt-hrK04B-RlRwI3R0yA_48x48.png"
+              alt="burnmut"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;บอร์นมัธ</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>19 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/C3J47ea36cMBc4XPbp9aaA_48x48.png"
+              alt="evertun"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;เอเวอร์ตัน</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">
+          <p>20 &nbsp;</p>
+          <span>
+            <img
+              src="https://ssl.gstatic.com/onebox/media/sports/logos/y1V4sm2SEBiWUPRIYl5rfg_48x48.png"
+              alt="southampton"
+              width="25px"
+            />
+          </span>
+          <p>&nbsp;เซาแธมป์ตัน</p>
+        </td>
+        <td>19</td>
+        <td>16</td>
+        <td>2</td>
+        <td>1</td>
+        <td>45</td>
+        <td>16</td>
+        <td>29</td>
+        <td>50</td>
+        <td class="inline-flex">
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__red">x</span>
+          <span class="circle circle__gray">-</span>
+          <span class="circle circle__green">✓</span>
+          <span class="circle circle__green">✓</span>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
